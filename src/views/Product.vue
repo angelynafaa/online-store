@@ -23,16 +23,14 @@
 </templates>
 
 <script>
+import { imagePath } from '@/mixins/imagePath.js';
+
 export default {
   name: "product",
+  mixins: [imagePath],
   data() {
     return {
       product: this.$store.getters.product(this.$route.paramas.id)
-    }
-  },
-  methods: {
-    imagePath(product) {
-   return require(`../assets/img/${product.images[0]}`);
     }
   }
 };
