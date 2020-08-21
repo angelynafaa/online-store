@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Product from "../views/Product.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +9,14 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+  },
+
+  {
+    path:"/products/:id", //:id will get replaced by the actiualy ic ov the product ewe click on
+    name: "product", //rote name
+    component: Product, // maps the route the ciomponent we just imported*/
+
   },
   {
     path: "/about",
