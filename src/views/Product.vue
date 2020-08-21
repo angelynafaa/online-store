@@ -2,7 +2,7 @@
     <div>
         <section class="wrapper">
             <div class="flrex-col">
-                <img class="flex-col--2" : src="imagePath(roduct) alt="">
+                <img class="flex-col--2" : src="makeImagePath(product) alt="">// we call makeImagePath() or we use the correct method name
                 <div class="flex-col--2">
                     <h2> {{peoduct.name}}</h2>
                     <p>Price: ${{product.price}}</p>
@@ -23,11 +23,11 @@
 </templates>
 
 <script>
-import { imagePath } from '@/mixins/imagePath.js';
+import { imagePath } from "@/mixins/imagePath.js"; //import mixins
 
 export default {
   name: "product",
-  mixins: [imagePath],
+  mixins: [imagePath], //register mixins
   data() {
     return {
       product: this.$store.getters.product(this.$route.paramas.id)
