@@ -8,27 +8,23 @@ export default new Vuex.Store({
     cart: [],
     products: [
       {
-        name : "Crewneck T-shrit",
-        id : 53362,
+        name: "Crewneck T-shrit",
+        id: 53362,
         price: 9.5,
-        color:"white",
-        size : "small",
+        color: "white",
+        size: "small",
         gender: "men",
         quantity: 10,
         dateAdded: "Tue Mar 24 2020 20:00:00 GMT-0400(Eastern Daylight Time)",
-        category : "Shirts",
+        category: "Shirts",
         details: {
-          material :"cotton",
+          material: "cotton",
           fit: "regular",
-          maintenance : "machine wash",
-          additiona: "some colors Feature different-colored yarns for a heathere effect."
+          maintenance: "machine wash",
+          additiona:
+            "some colors Feature different-colored yarns for a heathere effect."
         },
-        images : [
-          '53362-1.jpg',
-          '53362-2.jpg',
-          '53362-3.jpg',
-          
-        ]
+        images: ["53362-1.jpg", "53362-2.jpg", "53362-3.jpg"]
       },
       {
         name: "Cardigan Sweater",
@@ -47,11 +43,11 @@ export default new Vuex.Store({
           additional: ""
         },
         images: [
-          '53363-1.jpg',
-          '53363-2.jpg',
-          '53363-3.jpg',
-          '53363-4.jpg',
-          '53363-5.jpg',
+          "53363-1.jpg",
+          "53363-2.jpg",
+          "53363-3.jpg",
+          "53363-4.jpg",
+          "53363-5.jpg"
         ]
       },
       {
@@ -61,7 +57,7 @@ export default new Vuex.Store({
         color: "navy",
         size: {
           waist: 32,
-          length: 32,
+          length: 32
         },
         gender: "men",
         quantity: 5,
@@ -74,21 +70,25 @@ export default new Vuex.Store({
           additional: ""
         },
         images: [
-          '53364-1.jpg',
-          '53364-2.jpg',
-          '53364-3.jpg',
-          '53364-4.jpg',
-          '53364-5.jpg',
+          "53364-1.jpg",
+          "53364-2.jpg",
+          "53364-3.jpg",
+          "53364-4.jpg",
+          "53364-5.jpg"
         ]
-      },
-
+      }
     ]
   },
   mutations: {},
   actions: {},
   getters: {
-    product: (state) => (id) => {
-      return state.products.filter(p => p.id === Number(id))[0]
+    product: state => id => {
+      return state.products.filter(p => p.id === Number(id))[0];
+    },
+    cariItem: state => {
+      return state.cart.map(itemId =>
+        state.products.find(product => product.id === itemId)
+      );
     }
   }
 });
