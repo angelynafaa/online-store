@@ -8,25 +8,26 @@ export default new Vuex.Store({
     cart: [],
     products: [
       {
-        name: "Crewneck T-shrit",
-        id: 53362,
+        name : "Crewneck T-shrit",
+        id : 53362,
         price: 9.5,
         color:"white",
-        size: "small",
+        size : "small",
         gender: "men",
         quantity: 10,
         dateAdded: "Tue Mar 24 2020 20:00:00 GMT-0400(Eastern Daylight Time)",
-        category: "Shirts",
+        category : "Shirts",
         details: {
-          material:"cotton",
+          material :"cotton",
           fit: "regular",
-          maintenance: "machine wash",
-          additiona:"some colors Feature different-colored yarns for a heathere effect."
+          maintenance : "machine wash",
+          additiona: "some colors Feature different-colored yarns for a heathere effect."
         },
-        images: [
-          "53362-1.jpg", 
-          "53362-2.jpg", 
-          "53362-3.jpg"
+        images : [
+          '53362-1.jpg',
+          '53362-2.jpg',
+          '53362-3.jpg',
+          
         ]
       },
       {
@@ -73,20 +74,21 @@ export default new Vuex.Store({
           additional: ""
         },
         images: [
-          "53364-1.jpg",
-          "53364-2.jpg",
-          "53364-3.jpg",
-          "53364-4.jpg",
-          "53364-5.jpg"
+          '53364-1.jpg',
+          '53364-2.jpg',
+          '53364-3.jpg',
+          '53364-4.jpg',
+          '53364-5.jpg',
         ]
-      }
+      },
+
     ]
   },
-  mutations: {},
-  actions: {},
-  getters: {
-    product: state => id => {
-      return state.products.filter(p => p.id === Number(id))[0];
-    }
-  }
+  mutations: {
+
+  },
+  actions: {
+    
+  },
+  modules: {}
 });
