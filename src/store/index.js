@@ -80,19 +80,35 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    addToCart (state, payload) {
-      state.cart.push( Number(payload) )
-    },         
+    addToCart(state, payload) {
+      state.cart.push(Number(payload));
+    },
+    removeFromCart(state, payload) {
+      let indexToDelete = state.cart.indexOf(Number(payload));
+      state.cart.splice(indexToDelete, 1);
+    },
     decrementProductInventory(state, payload) {
-      let product = state.products.find(product => product.id === Number(payload))
+      let product = state.products.find(
+        product => product.id === Number(payload)
+      );
       product.quantity--;
+    },
+    incrementProductInventory(state, payload) {
+      let product = state.products.find(
+        product => product.id === Number(payload)
+      );
+      product.quantity++;
     }
   },
   actions: {
     addToCart({ commit }, payload) {
-      commit('addToCart', payload)
-      commit('decrementProductInventory', payload)
+      commit("addToCart", payload),
+        commit("decrementProductInventory", payload);
     },
+    removeFromCart({ commit }, payload) {
+      commit("removeFromCart", payload);
+      commit("incrementProductInventory", payload);
+    }
   },
   getters: {
     product: state => id => {
