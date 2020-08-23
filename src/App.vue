@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/cart">Cart</router-link>
+    <div id="nav" class="wrapper flex-col flex-col--align-center">
+      <h1 class="flex-col--2">MyStore</h1>
+      <div class="flex-col--2 flex-justify-right flex">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/cart">Cart</router-link>
+      </div>
     </div>
-    <router-view />
+    <router-view/>
   </div>
 </template>
 

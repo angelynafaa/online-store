@@ -6,9 +6,10 @@
         <li
           v-for="product in products"
           :key="product.id"
-          class="featured-items__item">
+          class="featured-items__item"
+        >
           <router-link :to="{ name: 'product', params: { id: product.id } }">
-           <img  class="flex-col--2" :src="makeImagePath(product)" alt="">
+            <img class="flex-col--2" :src="makeImagePath(product)" alt="" />
             <p class="product-title">{{ product.name }}</p>
             <p>
               <em>${{ product.price }}</em>
@@ -20,7 +21,7 @@
   </div>
 </template>
 <script>
-import { imagePath } from '@/mixins/imagePath.js'
+import { imagePath } from "@/mixins/imagePath.js";
 export default {
   name: "home",
   mixins: [imagePath],
@@ -44,7 +45,7 @@ export default {
   @media only screen and (max-width: 832px) {
     max-width: 100%;
     padding: 1rem;
-    text-align: center;
+    text-align: left;
   }
 }
 .featured-items {
