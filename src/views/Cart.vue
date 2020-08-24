@@ -6,8 +6,9 @@
         <li
           v-for="item in cartItems"
           :key="item.id"
-          class="flex-col cart-list__item">
-          <img :src="makeImagePath(item)" class="thumbnail" alt="">
+          class="flex-col cart-list__item"
+        >
+          <img :src="makeImagePath(item)" class="thumbnail" alt="" />
           <div class="flex-col cart-list__item__details">
             <div>
               <p>{{ item.name }}</p>
@@ -17,7 +18,8 @@
             <p>${{ item.price }}</p>
             <button
               @click="removeFromCart(item.id)"
-              class="btn cart-list__btn-remove">
+              class="btn cart-list__btn-remove"
+            >
               Remove
             </button>
           </div>
@@ -28,7 +30,7 @@
           <li class="total-section__item">
             <p class="total-section__item__label">{{ cartItemsCount }} items</p>
             <p>{{ itemsSubtotal }}</p>
-            </li>
+          </li>
           <li class="total-section__item">
             <p class="total-section__item__label">Shipping</p>
             <select v-model="selectedShippingOption">
@@ -36,10 +38,17 @@
               <option
                 v-for="option in shippingOptionsArray"
                 :key="option.text"
-                :value="option.rate">
+                :value="option.rate"
+              >
                 {{ option.text }} (${{ option.rate }})
               </option>
             </select>
+          </li>
+          <li class="total-section_item">
+            <p class="total-section__item__label">subtotal
+                Tax ({{ salesTax * 100}}%)
+            </p>
+            <p>{{ subtotal }}</p>
           </li>
         </ul>
       </section>
@@ -50,29 +59,30 @@
 <script>
 import { imagePath } from "@/mixins/imagePath.js";
 export default {
-  name: 'cart',
+  name: "cart",
   mixins: [imagePath],
   data() {
     return {
-      selectedShippingOption: '',
+      salesTax: 0.06,
+      selectedShippingOption: "",
       shippingOptionsArray: [
         {
-          text: 'One day',
-          rate: 20,
+          text: "One day",
+          rate: 20
         },
         {
-          text: 'Two days',
-          rate: 15,
+          text: "Two days",
+          rate: 15
         },
         {
-          text: 'Three to five days',
-          rate: 10,
+          text: "Three to five days",
+          rate: 10
         },
         {
-          text: 'One week or more',
-          rate: 5,
-        },
-      ],
+          text: "One week or more",
+          rate: 5
+        }
+      ]
     };
   },
   computed: {
@@ -85,12 +95,27 @@ export default {
     itemsSubtotal() {
       return this.cartItems.reduce((total, item) => total + item.price, 0);
     },
+    subtotal() {
+      if (this.selectedShippingOption) {
+        return Number(this.itemsSubtotal) + Number(this.selectedShippingOption);
+      }
+      return "---";
+    },
+    salesTaxPercentage(){
+      return `{$this.salestax = 100%}`;
+    },
+    salesTaxApplied(){
+      if (this.selectedShippingOption){
+        return(this.subtotal*this.salesTax).toFixed(2);
+      }
+      return '---';
+    },
   },
   methods: {
     removeFromCart(itemId) {
-      this.$store.dispatch('removeFromCart', itemId);
-    },
-  },
+      this.$store.dispatch("removeFromCart", itemId);
+    }
+  }
 };
 </script>
 
@@ -112,17 +137,17 @@ export default {
   margin-left: 2rem;
 }
 .cart-list__btn-remove {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   &:hover {
     color: red;
   }
 }
 .thumbnail {
   max-width: 50px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 .total-section {
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 0 1rem 1rem;
 }
 .total-section-list {
