@@ -45,7 +45,7 @@
             </select>
           </li>
           <li class="total-section__item">
-            <p class="total-section__item__label"> subtotal </p> 
+            <p class="total-section__item__label">subtotal</p>
             <p>{{ subtotal }}</p>
           </li>
           <li class="total-section__item">
@@ -58,7 +58,17 @@
             <p class="total-section__item__label">Total</p>
             <p>{{ total }}</p>
           </li>
+          <li class="total-section__item">
+            <p class="total-section__item__label">Total</p>
+            <p>{{ total }}</p>
+          </li>
         </ul>
+        <button
+          :disabled="!this.selectedShippingOption"
+          class="btn btn--grey total-section__checkout-button"
+        >
+          Check Out
+        </button>
       </section>
     </div>
   </div>
@@ -124,6 +134,12 @@ export default {
       }
       return "---";
     }
+  },
+  total() {
+    if (this.selectedShippingOption) {
+      return Number(this.subtotal) + Number(this.salesTaxApplied);
+    }
+    return "---";
   },
   methods: {
     removeFromCart(itemId) {
