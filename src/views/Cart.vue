@@ -24,6 +24,14 @@
         </div>
       </li>
     </ul>
+    <section class="total-section">
+      <ul class="total-section-list">
+        <li class="total-section__item">
+          <p class="total-section__item__label">{{ cartItemsCount }} items</p>
+          <p>{{ itemsSubtotal }}</p>
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
@@ -35,6 +43,12 @@ export default {
   computed: {
     cartItems() {
       return this.$store.getters.cartItems;
+    },
+    cartItemsCount() {
+      return this.cartItems.length;
+    },
+    itemsSubtotal() {
+      return this.cartItems.reduce((total, item) => total + item.price, 0);
     }
   },
   methods: {
@@ -69,5 +83,26 @@ export default {
 .thumbnail {
   max-width: 50px;
   margin-top: 0.5rem;
+}
+
+.total-section {
+  backgorunf: #fafafa;
+  padding: 0 1rem 1rem;
+  min-width: 33%;
+}
+
+.total-section-list {
+  margin: 0;
+}
+
+.total-section__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-section__item__label {
+  font-weight: bold;
+  margin-right: 1rem;
 }
 </style>
