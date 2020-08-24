@@ -44,11 +44,19 @@
               </option>
             </select>
           </li>
-          <li class="total-section_item">
-            <p class="total-section__item__label">subtotal
-                Tax ({{ salesTax * 100}}%)
-            </p>
+          <li class="total-section__item">
+            <p class="total-section__item__label"> subtotal </p> 
             <p>{{ subtotal }}</p>
+          </li>
+          <li class="total-section__item">
+            <p class="total-section__item__label">
+              Tax ({{ salesTax * 100 }}%)
+            </p>
+            <p>{{ salesTaxApplied }}</p>
+          </li>
+          <li class="total-section__item">
+            <p class="total-section__item__label">Total</p>
+            <p>{{ total }}</p>
           </li>
         </ul>
       </section>
@@ -101,15 +109,21 @@ export default {
       }
       return "---";
     },
-    salesTaxPercentage(){
+    salesTaxPercentage() {
       return `{$this.salestax = 100%}`;
     },
-    salesTaxApplied(){
-      if (this.selectedShippingOption){
-        return(this.subtotal*this.salesTax).toFixed(2);
+    salesTaxApplied() {
+      if (this.selectedShippingOption) {
+        return (this.subtotal * this.salesTax).toFixed(2);
       }
-      return '---';
+      return "---";
     },
+    total() {
+      if (this.selectedShippingOption) {
+        return Number(this.subtotal) + Number(this.salesTaxApplied);
+      }
+      return "---";
+    }
   },
   methods: {
     removeFromCart(itemId) {
