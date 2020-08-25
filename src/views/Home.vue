@@ -4,12 +4,12 @@
       <h2>Featured Items</h2>
       <ul class="featured-items">
         <li
-          v-for="product in products"
+          v-for="product in featuredProducts"
           :key="product.id"
           class="featured-items__item"
         >
           <router-link :to="{ name: 'product', params: { id: product.id } }">
-            <img class="flex-col--2" :src="makeImagePath(product)" alt="" />
+            <img class="product-image" :src="makeImagePath(product)" alt="" />
             <p class="product-title">{{ product.name }}</p>
             <p>
               <em>${{ product.price }}</em>
@@ -22,12 +22,13 @@
 </template>
 <script>
 import { imagePath } from "@/mixins/imagePath.js";
+
 export default {
   name: "home",
   mixins: [imagePath],
   computed: {
-    products: function() {
-      return this.$store.state.products;
+    featuredProducts: function() {
+      return this.$store.getters.featuredProducts.slice(0, 3);
     }
   },
   methods: {

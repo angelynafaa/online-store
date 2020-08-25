@@ -5,30 +5,32 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    cart: [],
+    cart: [53363],
     products: [
       {
-        name: "Crewneck T-shrit",
+        name: "Crewneck T-Shirt",
         id: 53362,
+        featured: true,
         price: 9.5,
         color: "white",
         size: "small",
         gender: "men",
         quantity: 10,
-        dateAdded: "Tue Mar 24 2020 20:00:00 GMT-0400(Eastern Daylight Time)",
+        dateAdded: "Tue Mar 24 2015 20:00:00 GMT-0400 (Eastern Daylight Time)",
         category: "Shirts",
         details: {
           material: "cotton",
           fit: "regular",
           maintenance: "machine wash",
-          additiona:
-            "some colors Feature different-colored yarns for a heathere effect."
+          additional:
+            "Some colors feature different-colored yarns for a heathered effect."
         },
         images: ["53362-1.jpg", "53362-2.jpg", "53362-3.jpg"]
       },
       {
         name: "Cardigan Sweater",
         id: 53363,
+        featured: true,
         price: 49.5,
         color: "red",
         size: "medium",
@@ -53,6 +55,7 @@ export default new Vuex.Store({
       {
         name: "Slim Fit Jeans",
         id: 53364,
+        featured: true,
         price: 29.5,
         color: "navy",
         size: {
@@ -239,8 +242,14 @@ export default new Vuex.Store({
         state.products.find(product => product.id === itemId)
       );
     },
-    featuredProducts: (state) => {
-      return state.products.filter(p => p.featured)
+    featuredProducts: state => {
+      return state.products.filter(p => p.featured);
+    },
+    productsByGender: state => gender => {
+      return state.products.filter(p => p.gender === gender);
+    },
+    productsByCategory: category => {
+      return this.state.products.filter(p => p.category === category);
     }
   }
 });

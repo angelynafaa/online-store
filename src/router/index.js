@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Product from "../views/Product.vue";
 import Cart from "../views/Cart.vue";
+import GenderOverview from "../views/GenderOverview.vue";
 
 Vue.use(VueRouter);
 
@@ -23,5 +24,10 @@ export default new VueRouter({
       name: "cart",
       component: Cart
     },
-  ],
+    {
+      path: "/:gender/",
+      name: "gender-overview",
+      component: GenderOverview
+    }
+  ]
 });
