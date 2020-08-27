@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Product from "../views/Product.vue";
 import Cart from "../views/Cart.vue";
 import GenderOverview from "../views/GenderOverview.vue";
+import "bootstrap";
 
 Vue.use(VueRouter);
 
