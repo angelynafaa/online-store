@@ -69,6 +69,7 @@ export default {
   cursor: pointer;
   transition: all 0.15s ease;
 }
+
 .btn--grey {
   background-color: #2c3e50;
   color: #fff;
