@@ -1,29 +1,25 @@
 <template>
-  <div class="container">
-    <div id="app">
-      <nav class="row navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand">Navbar</a>
-        <div class="collapse navbar-collapse" id="navb">
-          <ul class="navbar-nav ml-auto mr-3">
-            <li class="nav-item mx-md-2">
-              <form class="form-inline">
-                <router-link to="/" class="nav-items__item">Home</router-link>
-                <router-link
-                  :to="{ name: 'gender-overview', params: { gender: 'men' } }"
-                  class="nav-items__item"
-                  >Men</router-link
-                >
-                <router-link to="/cart" class="nav-items__item">
-                  Cart
-                  <counter-badge :count="cartCount"></counter-badge>
-                </router-link>
-              </form>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <div id="app">
+    <div id="nav" class="wrapper flex-col flex-col--align-center">
+      <h1 class="flex-col--2">MyStore</h1>
+      <div class="flex-col--2 nav-items">
+        <router-link to="/" class="nav-items__item">Home</router-link>
+        <router-link
+          :to="{ name: 'gender-overview', params: { gender: 'women' } }"
+          class="nav-items__item"
+          >Women</router-link
+        >
+        <router-link
+          :to="{ name: 'gender-overview', params: { gender: 'men' } }"
+          class="nav-items__item"
+          >Men</router-link
+        >
+        <router-link to="/cart" class="nav-items__item"
+          >Cart
+          <counter-badge :count="cartCount"></counter-badge>
+        </router-link>
+      </div>
     </div>
-
     <router-view />
   </div>
 </template>
@@ -47,21 +43,18 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: black;
+  color: #2c3e50;
 }
-
 #nav {
-  padding: 0px;
+  padding: 30px;
   a {
     font-weight: bold;
-    color: black;
-
+    color: #2c3e50;
     &.router-link-exact-active {
       color: #42b983;
     }
   }
 }
-
 .nav-items {
   justify-content: flex-end;
   display: flex;
@@ -69,14 +62,9 @@ export default {
 .nav-items__item {
   margin-left: 1rem;
   position: relative;
-  color: black;
 }
 ul {
   padding-left: 0;
   list-style: none;
-}
-
-.navbar-light{
-  background-color: pink;
 }
 </style>
