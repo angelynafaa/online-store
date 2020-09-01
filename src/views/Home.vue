@@ -1,6 +1,34 @@
 <template>
-  <b-container class="bv-example-row">
-    <section class="wrapper">
+  <body>
+    <header>
+      <div
+        style="padding-bottom: 0px;
+    border-top-width: 54px;
+    padding-top: 187px"
+      >
+        <div class="ima">
+          <h1 class="new">NEW COLLECTION</h1>
+          <br />
+          <h1 class="brand">SS60</h1>
+          <div>
+            <b-button-group>
+              <b-button>MEN</b-button>
+              <b-button>WOMEN</b-button>
+            </b-button-group>
+          </div>
+        </div>
+        <b-card
+          img-src="../assets/bg-1.png"
+          img-alt="Image"
+          style="max-width: 37rem;"
+          class="mb-2"
+        >
+        </b-card>
+      </div>
+
+      <div class="container box" style=""></div>
+    </header>
+    <!-- <section class="wrapper">
       <h2>Featured Items</h2>
       <ul class="featured-items">
         <li
@@ -17,8 +45,8 @@
           </router-link>
         </li>
       </ul>
-    </section>
-  </b-container>
+    </section> -->
+  </body>
 </template>
 
 <script>
@@ -71,5 +99,85 @@ export default {
 }
 .product-title {
   font-weight: bold;
+}
+
+header {
+  padding: 100px 0 165px;
+  margin-top: -72px;
+  background-color: #f1e6e6;
+  // background-image: url(../assets/bg-1.png);
+  background-size: cover;
+
+  h1,
+  p {
+    color: darkblue;
+  }
+  h1 {
+    font-family: "playfair Display", serif;
+    font-weight: bold;
+    font-size: 35px;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  .btn-get-started {
+    background-color: #ff9e53;
+    color: white;
+
+    &:hover {
+      background-color: #ff9e69;
+      color: white;
+    }
+  }
+}
+
+header {
+  .card {
+    background-color: #da53626e !important;
+    margin-left: 50%;
+    margin-bottom: 100px;
+    margin-top: -555px;
+    position: static;
+  }
+}
+
+.card-img,
+.card-img-top {
+  margin-top: -50px !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.ima {
+  min-height: 540px;
+  background-color: #f1e6e6;
+  margin-right: 50%;
+  margin-top: -62px;
+  h1,
+  .new {
+    color: #000000d4;
+    text-align: right;
+    margin-right: 81px;
+  }
+  .brand {
+    color: black;
+    font-size: 297px;
+    margin-right: -75px;
+  }
+}
+
+div {
+  .btn-group {
+    margin-left: 65% !important;
+  }
+  .btn-secondary {
+    border-bottom-right-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-top-left-radius: 22px;
+  }
 }
 </style>
