@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container class="bv-example-row">
     <section class="wrapper">
       <h2>Featured Items</h2>
       <ul class="featured-items">
@@ -18,7 +18,7 @@
         </li>
       </ul>
     </section>
-  </div>
+  </b-container>
 </template>
 
 <script>

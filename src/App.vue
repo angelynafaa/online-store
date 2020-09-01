@@ -1,24 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav" class="wrapper flex-col flex-col--align-center">
-      <h1 class="flex-col--2">MyStore</h1>
-      <div class="flex-col--2 nav-items">
-        <router-link to="/" class="nav-items__item">Home</router-link>
-        <router-link
-          :to="{ name: 'gender-overview', params: { gender: 'women' } }"
-          class="nav-items__item"
-          >Women</router-link
-        >
-        <router-link
-          :to="{ name: 'gender-overview', params: { gender: 'men' } }"
-          class="nav-items__item"
-          >Men</router-link
-        >
-        <router-link to="/cart" class="nav-items__item"
-          >Cart
-          <counter-badge :count="cartCount"></counter-badge>
-        </router-link>
-      </div>
+    <div>
+      <b-card title="Card Title" no-body>
+        <b-card-header header-tag="nav">
+          <b-nav card-header pills>
+            <b-nav-item>
+              <router-link to="/" class="nav-items__item"
+                >Home</router-link
+              ></b-nav-item
+            >
+            <b-nav-item>
+              <router-link
+                :to="{ name: 'gender-overview', params: { gender: 'women' } }"
+                class="nav-items__item"
+                >Women</router-link
+              ></b-nav-item
+            >
+            <b-nav-item>
+              <router-link
+                :to="{ name: 'gender-overview', params: { gender: 'men' } }"
+                class="nav-items__item"
+                >Men</router-link
+              >
+            </b-nav-item>
+            <b-nav-item>
+              <router-link to="/cart" class="nav-items__item"
+                >Cart
+                <counter-badge :count="cartCount"></counter-badge>
+              </router-link>
+            </b-nav-item>
+            <!-- <b-nav-item disabled>Disabled</b-nav-item> -->
+          </b-nav>
+        </b-card-header>
+      </b-card>
     </div>
     <router-view />
   </div>
@@ -55,16 +69,22 @@ export default {
     }
   }
 }
-.nav-items {
-  justify-content: flex-end;
-  display: flex;
+
+.card-header {
+  padding: 0.75rem 0.25rem;
+  margin-bottom: 0px;
+  background-color: #f1e6e6 !important;
+  border-bottom: none !important;
 }
-.nav-items__item {
-  margin-left: 1rem;
-  position: relative;
+.card {
+  border: 0px solid rgba(0, 0, 0, 0) !important;
+  border-radius: 0px !important;
 }
-ul {
-  padding-left: 0;
-  list-style: none;
+a {
+  color: black !important;
+}
+.badge {
+  position: initial !important;
+  display: table-caption !important;
 }
 </style>
