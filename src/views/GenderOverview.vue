@@ -121,7 +121,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .random-items-wrapper {
   background: #fafafa;
   text-align: center;
