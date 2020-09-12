@@ -166,12 +166,12 @@ export default {
   justify-content: space-between;
   margin-left: 2rem;
 }
-.cart-list__btn-remove {
+/* .cart-list__btn-remove {
   margin-top: 0.5rem;
   &:hover {
     color: red;
   }
-}
+} */
 .thumbnail {
   max-width: 50px;
   margin-top: 0.5rem;
