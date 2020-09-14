@@ -25,43 +25,36 @@
         </b-row>
       </b-col>
       <b-col cols="6">
-        <h1 style="text-align:center; font-size:4rem; color:white">
-          ${{ product.price }}
-        </h1>
-        <!-- <div class="detail" style="font-size:1.5rem;"> -->
+        <div
+          class="detail"
+          style="
+    padding-top: 9%;
+    font-family: sans-serif;"
+        >
+          <h1 style="text-align:center; font-size:4rem; color:white">
+            <p>${{ product.price }}</p>
+          </h1>
           <h3 v-if="product.details.additional">
             Additional: {{ product.details.additional }}<br />
             Material: {{ product.details.material }} <br />
             Maintenance: {{ product.details.maintenance }} <br />
             Fit: {{ product.details.fit }}
           </h3>
-        <!-- </div> -->
+        </div>
+        <div>
+          <b-button pill disabled class="size">S</b-button>
+          <b-button pill disabled class="size" style="margin-left:20px;"
+            >L</b-button
+          >
+          <b-button pill disabled class="size" style="margin-left:20px;"
+            >M</b-button
+          >
+        </div>
+        <div>
+          <button @click="addToCart" class="btn btn--grey">Add to Cart</button>
+        </div>
       </b-col>
     </b-row>
-
-    <!-- <section class="wrapper">
-      <div class="flex-col">
-        <img class="flex-col--2" :src="makeImagePath(product)" alt="" />
-        <div class="flex-col--2">
-          <button @click="addToCart" class="btn btn--grey">Add to Cart</button>
-          <p>Price: ${{ product.price }}</p>
-          <p>Size: {{ product.size }}</p>
-          <p>Color: {{ product.color }}</p>
-          <p>
-            <em>{{ product.quantity }} left in stock</em>
-          </p>
-          <h3>Details</h3>
-          <ul>
-            <li>Material: {{ product.details.material }}</li>
-            <li>Fit: {{ product.details.fit }}</li>
-            <li>Maintenance: {{ product.details.maintenance }}</li>
-            <li v-if="product.details.additional">
-              Additional: {{ product.details.additional }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section> -->
   </div>
 </template>
 
@@ -113,11 +106,18 @@ export default {
   cursor: pointer
   transition: all 0.15s ease
 
+button
+    border-style: dotted !important
+    color: black !important
+    margin-top: 9% !important
+
 
 .btn--grey
-  background-color: #2c3e50
-  color: #fff
+  width: 100%
+  border-style: none !important
+  background-color: black
+  color: #fff !important
   &:hover,
   &:focus
-    background-color: #42b983
+    background-color: #ce0461
 </style>

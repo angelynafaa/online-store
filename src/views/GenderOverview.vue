@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-container class="view-gender">
-      <h3 class="category">Category Men {{ pageTitle }}</h3>
+      <h3 class="category">Category {{ pageTitle }}</h3>
       <b-row class="text-center">
         <b-col
           class="box"
@@ -21,6 +21,7 @@
                 class="product-image"
                 style="position: relative;
                     right: 20px;
+                    height: 321px;
                     border-radius: 25px;
                     "
                 :src="makeImagePath(product)"
@@ -39,70 +40,6 @@
           </router-link>
         </b-col>
       </b-row>
-      <!-- 
-      <ul class="wrapper item-grid">
-        <li
-          v-for="product in productsByGender"
-          :key="product.id"
-          class="item-grid__item"
-        >
-          <router-link :to="{ name: 'product', params: { id: product.id } }">
-            <img class="product-image" :src="makeImagePath(product)" alt="" />
-            <p class="product-title">{{ product.name }}</p>
-            <p>
-              <em>$ {{ product.price }}</em>
-            </p>
-          </router-link>
-        </li>
-      </ul> -->
-
-      <!-- <div class="wrapper random-items-wrapper">
-        <h2>Our Recommendations</h2>
-        <p>Try these on for size!</p>
-        <section class="random-items">
-          <router-link
-            :to="{ name: 'product', params: { id: randomTop.id } }"
-            class="random-items__item"
-          >
-            <img class="product-image" :src="makeImagePath(randomTop)" alt="" />
-            <p class="product-title">{{ randomTop.name }}</p>
-            <p>
-              <em>${{ randomTop.price }}</em>
-            </p>
-          </router-link>
-          <router-link
-            :to="{ name: 'product', params: { id: randomBottom.id } }"
-            class="random-items__item"
-          >
-            <img
-              class="product-image"
-              :src="makeImagePath(randomBottom)"
-              alt=""
-            />
-            <p class="product-title">{{ randomBottom.name }}</p>
-            <p>
-              <em>${{ randomBottom.price }}</em>
-            </p>
-          </router-link>
-          <router-link
-            :to="{ name: 'product', params: { id: randomFootwear.id } }"
-            class="random-items__item"
-          >
-            <img
-              class="product-image"
-              :src="makeImagePath(randomFootwear)"
-              alt=""
-            />
-            <p class="product-title">{{ randomFootwear.name }}</p>
-            <p>
-              <em>${{ randomFootwear.price }}</em>
-            </p>
-          </router-link>
-        </section>
-        <button class="btn btn--grey" @click="recommendRandomOutfit">
-          Shuffle
-        </button>
-      </div> -->
     </b-container>
   </div>
 </template>

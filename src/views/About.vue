@@ -1,5 +1,9 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <b-container class="bv-example-row">
+    <b-row class="text-center">
+      <b-col>1 of 3</b-col>
+      <b-col cols="8">2 of 3 (wider)</b-col>
+      <b-col>3 of 3</b-col>
+    </b-row>
+  </b-container>
 </template>
